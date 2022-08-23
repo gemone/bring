@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/deluan/bring"
 	"github.com/faiface/pixel/pixelgl"
+	"github.com/gemone/bring"
 )
 
 var (

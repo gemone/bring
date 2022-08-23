@@ -3,7 +3,7 @@ package bring
 import (
 	"time"
 
-	"github.com/deluan/bring/protocol"
+	"github.com/gemone/bring/protocol"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 )

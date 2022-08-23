@@ -3,9 +3,9 @@ package main
 import (
 	"image"
 
-	"github.com/deluan/bring"
 	"github.com/faiface/pixel"
 	"github.com/faiface/pixel/pixelgl"
+	"github.com/gemone/bring"
 )
 
 type mouseInfo struct {

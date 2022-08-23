@@ -5,7 +5,7 @@ import (
 	"image"
 	"strconv"
 
-	"github.com/deluan/bring/protocol"
+	"github.com/gemone/bring/protocol"
 )
 
 // ErrInvalidKeyCode is returned by SendKey if an invalid code is passed

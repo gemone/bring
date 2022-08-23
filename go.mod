@@ -1,4 +1,4 @@
-module github.com/deluan/bring
+module github.com/gemone/bring
 
 go 1.13
 

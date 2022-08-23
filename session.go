@@ -8,7 +8,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/deluan/bring/protocol"
+	"github.com/gemone/bring/protocol"
 )
 
 type SessionState int

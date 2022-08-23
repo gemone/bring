@@ -3,7 +3,7 @@ package bring
 import (
 	"net"
 
-	"github.com/deluan/bring/protocol"
+	"github.com/gemone/bring/protocol"
 )
 
 const disconnectOpcode = "disconnect"

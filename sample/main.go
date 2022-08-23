@@ -8,9 +8,9 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/deluan/bring"
 	"github.com/faiface/pixel"
 	"github.com/faiface/pixel/pixelgl"
+	"github.com/gemone/bring"
 	"github.com/sirupsen/logrus"
 	"golang.org/x/image/colornames"
 )
