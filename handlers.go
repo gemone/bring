@@ -153,7 +153,7 @@ func parseByte(s string) byte {
 		return defaultByte
 	}
 
-	if n > 0 && n <= math.MaxUint32 {
+	if n > 0 && n <= math.MaxUint8 {
 		return byte(n)
 	}
 
