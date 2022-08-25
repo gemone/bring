@@ -149,7 +149,7 @@ func parseInt(s string) int {
 
 func parseByte(s string) byte {
 	// byte uint8
-	n, err := strconv.ParseUInt(s, 10, 8)
+	n, err := strconv.ParseUint(s, 10, 8)
 	if err != nil {
 		return defaultByte
 	}
