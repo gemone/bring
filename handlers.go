@@ -1,9 +1,15 @@
 package bring
 
 import (
+	"math"
 	"strconv"
 
 	"github.com/gemone/bring/protocol"
+)
+
+const (
+	defaultInt  int  = 256
+	defaultByte byte = 255
 )
 
 // Handler func for  Guacamole instructions
@@ -22,23 +28,24 @@ var handlers = map[string]handlerFunc{
 		srcY := parseInt(args[2])
 		srcWidth := parseInt(args[3])
 		srcHeight := parseInt(args[4])
-		mask := parseInt(args[5])
+		mask := parseByte(args[5])
 		dstL := parseInt(args[6])
 		dstX := parseInt(args[7])
 		dstY := parseInt(args[8])
 		c.display.copy(srcL, srcX, srcY, srcWidth, srcHeight,
-			dstL, dstX, dstY, byte(mask))
+			dstL, dstX, dstY, mask)
 		return nil
 	},
 
 	"cfill": func(c *Client, args []string) error {
-		mask := parseInt(args[0])
 		layerIdx := parseInt(args[1])
-		r := parseInt(args[2])
-		g := parseInt(args[3])
-		b := parseInt(args[4])
-		a := parseInt(args[5])
-		c.display.fill(layerIdx, byte(r), byte(g), byte(b), byte(a), byte(mask))
+
+		mask := parseByte(args[0])
+		r := parseByte(args[2])
+		g := parseByte(args[3])
+		b := parseByte(args[4])
+		a := parseByte(args[5])
+		c.display.fill(layerIdx, r, g, b, a, mask)
 		return nil
 	},
 
@@ -80,7 +87,7 @@ var handlers = map[string]handlerFunc{
 
 	"img": func(c *Client, args []string) error {
 		s := c.streams.get(parseInt(args[0]))
-		op := byte(parseInt(args[1]))
+		op := parseByte(args[1])
 		layerIdx := parseInt(args[2])
 		//mimetype := args[3] // Not used
 		x := parseInt(args[4])
@@ -129,6 +136,26 @@ var handlers = map[string]handlerFunc{
 }
 
 func parseInt(s string) int {
-	n, _ := strconv.Atoi(s)
-	return n
+	// fix Incorrect conversion between integer types
+	// https://github.com/gemone/bring/security/code-scanning/7
+	// The number used by the protocol is not large, and it is converted to 32 bits
+	n, err := strconv.ParseInt(s, 10, 32)
+	if err != nil {
+		return defaultInt
+	}
+
+	return int(n)
+}
+
+func parseByte(s string) byte {
+	n, err := strconv.ParseInt(s, 10, 32)
+	if err != nil {
+		return defaultByte
+	}
+
+	if n > 0 && n <= math.MaxUint32 {
+		return byte(n)
+	}
+
+	return defaultByte
 }
