@@ -7,7 +7,7 @@ require (
 	github.com/onsi/ginkgo v1.16.5
 	github.com/onsi/gomega v1.20.1
 	github.com/tfriedel6/canvas v0.12.1
-	golang.org/x/image v0.12.0
+	golang.org/x/image v0.13.0
 )
 
 require (
