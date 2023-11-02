@@ -6,7 +6,7 @@ require (
 	github.com/faiface/pixel v0.10.0
 	github.com/gemone/bring v0.1.0
 	github.com/sirupsen/logrus v1.9.0
-	golang.org/x/image v0.5.0
+	golang.org/x/image v0.10.0
 )
 
 require (
@@ -19,5 +19,5 @@ require (
 	github.com/google/uuid v1.3.0 // indirect
 	github.com/pkg/errors v0.8.1 // indirect
 	github.com/tfriedel6/canvas v0.12.1 // indirect
-	golang.org/x/sys v0.0.0-20220722155257-8c9f86f7a55f // indirect
+	golang.org/x/sys v0.5.0 // indirect
 )
