@@ -6,7 +6,7 @@ require (
 	github.com/faiface/pixel v0.10.0
 	github.com/gemone/bring v0.1.0
 	github.com/sirupsen/logrus v1.9.0
-	golang.org/x/image v0.5.0
+	golang.org/x/image v0.18.0
 )
 
 require (
